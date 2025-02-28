@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import Cell from './cell';
+import './Grid.css';
 
 
 const Grid = () => {
@@ -17,14 +18,14 @@ const Grid = () => {
     }
 
     return (
-        <div style={{ textAlign: "center" }}>
-        <h2>Count: {count}</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 100px)", gap: "1px" }}>
-          {cells.map((isOn, index) => (
-            <Cell key={index} isOn={isOn} toggleCell={() => toggleCell(index)} />
-          ))}
+        <div className="grid-container">
+            <h2 className="count">Count: {count}</h2>
+            <div className="grid">
+                {cells.map((isOn, index) => (
+                    <Cell key={index} isOn={isOn} toggleCell={() => toggleCell(index)} />
+                ))}
+            </div>
         </div>
-      </div>
     );
 }
 
